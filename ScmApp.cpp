@@ -132,7 +132,27 @@ namespace cs
 
    void ScmApp::addACourse()
    {
+      char newCode[MAX_COURSECODE_LEN + 1];
+      char* newCourseTitle;
+      int newCredits_;
+      int newStudyLoad_;
 
+      cout << "Enter Course Code: ";
+      cin >> newCode;
+      cout << "Enter Course Title: ";
+      cin >> newCourseTitle;
+      cout << "Enter amount of credits: ";
+      cin >> newCredits_;
+      cout << "Enter Study Load: ";
+      cin >> newStudyLoad_;
+
+      addedCourse = new Course(newCode, newCourseTitle, newCredits_, newStudyLoad_);
+
+      
+      courseList_[noOfCourses] = addACourse;
+      if(courseList_[noOfCourses] == nullptr) {
+         noOfCourses++;
+      }  
    }
    int ScmApp::run()
    {
