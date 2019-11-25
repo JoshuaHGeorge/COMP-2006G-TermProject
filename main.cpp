@@ -6,7 +6,5 @@ using namespace cs;
 
 int main()
 {
-    
-
-   return 0;
+   return samApp::run();
 }
