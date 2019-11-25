@@ -35,7 +35,7 @@ namespace cs
       bool isEmpty() const;
    };
    //non member operator
-   bool operator == (int&, const Course&);
+   bool operator == (const Course&);
    int operator += (int&, const Course&);
    std::ostream& operator<<(std::ostream&, const Course&);
 }

@@ -112,12 +112,21 @@ namespace cs
       return safeEmptyState;
    }
 
+   bool operator==(const Course& compareCourse){ //the integer reference isn't really needed for this function, so it's been removed
+      if(strcmp(courseCode_, compareCourse.courseCode_) == 0){
+         return true;
+      }
+      return false;
+   }
+
+   int operator+=(int& sLoadChange, const Course& courseToMod){
+      return (courseToMod.studyLoad_ += sLoadChange); //not sure if this is exactly what he intended, but it appears to be what he's referring to
+   }
    std::ostream& operator<<(std::ostream& os, const Course&source)
    {
       source.write(os, true);
       return os;
    }
-
 }
 
 

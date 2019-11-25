@@ -93,7 +93,7 @@ namespace cs
          return -1;
       }
       for(int i = 0; i < numberOfCourses; i++){
-         if(strcmp(courseCode, *courseList[i]).getCourseCode() == 0){
+         if(courseList_[i] == courseCode)){ //defines
             return i; //returns the first index that it comes across
          }
       }
