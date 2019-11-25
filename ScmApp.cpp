@@ -6,7 +6,7 @@ namespace cs
    ScmApp::ScmApp()
    {
       // make an empty array of the max size
-      Course* courseList_ = new Course[MAX_NO_RECS];
+      Course *courseList_[] = new *Course[MAX_NO_RECS]; 
       // set all the pointers in the array to safe null values
       for(int i = 0; i < MAX_NO_RECS; i++){
          courseList_[i] = nullptr;
@@ -23,7 +23,7 @@ namespace cs
       noOfCourses = *source.noOfCourses;
 
       // add all the courses from the list of the object being copied to the new object
-      Course* courseList_ = new Course[MAX_NO_RECS];
+      Course* courseList_ = new *Course[MAX_NO_RECS];
       for(int i = 0; i < MAX_NO_RECS; i++){
          courseList_[i] = *source.courseList_[i];
       }
