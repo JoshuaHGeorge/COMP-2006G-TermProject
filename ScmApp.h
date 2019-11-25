@@ -25,5 +25,5 @@ namespace cs
       void addACourse();
       int run();
    }
-
+}
 #endif
