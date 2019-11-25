@@ -5,14 +5,28 @@ namespace cs
 {
    ScmApp::ScmApp()
    {
-      courseList_ ;
+      // make an empty array of the max size
+      Course* courseList_ = new Course[MAX_NO_RECS];
+      // set all the pointers in the array to safe null values
+      for(int i = 0; i < MAX_NO_RECS; i++){
+         courseList_[i] = nullptr;
+      }
+
+      // set the default value of number of courses to 0
       noOfCourses = 0;
    }
 
 
    ScmApp::ScmApp(const ScmApp& source)                           //copy constructor
    {
+      // copy the number of courses from the object being copied
+      noOfCourses = *source.noOfCourses;
 
+      // add all the courses from the list of the object being copied to the new object
+      Course* courseList_ = new Course[MAX_NO_RECS];
+      for(int i = 0; i < MAX_NO_RECS; i++){
+         courseList_[i] = *source.courseList_[i];
+      }
    }
 
    ScmApp& ScmApp::operator=(const ScmApp& source)        //assignment operator
@@ -56,7 +70,7 @@ namespace cs
       cin.ignore();
 
       //validates that select is within the menu options. Returns if so, returns failure number if not.
-      for(int i = 0; i =< sizeof(options); i++) {
+      for(int i = 0; i < noOfCourses; i++) {
          if (select == i) {
             return select;
          }
@@ -66,6 +80,8 @@ namespace cs
 
    void ScmApp::listCourses()const
    {
+      cout << " Row | Code | Course Title  | Credit | Load| System | Lang |" << endl;  
+      cout << "-----|------|---------------|--------|-----|--------|------|" << endl;
       for(int i = 0; i < courseList_; i++){
          courseList_.Display();
       }
@@ -93,7 +109,7 @@ namespace cs
    void ScmApp::changeStudyLoad(const char* courseCode)
    {
       //For and If worrk together to validate courseCode, to ensure it exists
-      for(int i = 0; i < sizeof(courseList_); i++;) {
+      for(int i = 0; i < noOfCourses; i++;) {
          if(searchACourse(courseCode) != -1) {
             //Functions allows user to input a new study load if it is found.
             int changing;
