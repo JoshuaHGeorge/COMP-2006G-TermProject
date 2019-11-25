@@ -2,6 +2,7 @@
 #define CS_COURSE_H_
 
 #include <iostream>
+#include <cstring>
 #include "Streamable.h"
 #include "general.h"
 
@@ -27,12 +28,11 @@ namespace cs
       void credits(int);
       void studyLoad(int);
       //getters
-      const char* courseCode() const;
-      const char*courseTitle_(const char*) const;
-      int credits_(int) const;
-      int studyLoad_(int) const;
+      const char* getCourseCode() const;
+      const char* getCourseTitle_(const char*) const;
+      int getCredits_(int) const;
+      int getStudyLoad_(int) const;
       bool isEmpty() const;
-
    };
    //non member operator
    bool operator == (int&, const Course&);

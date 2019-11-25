@@ -78,19 +78,19 @@ namespace cs
 
    // Getter Functions
 
-   const char* Course::courseCode() const
+   const char* Course::getCourseCode() const
    {
       return courseCode_;
    }
-   const char* Course::courseTitle_(const char*) const
+   const char* Course::getCourseTitle_(const char*) const
    {
       return courseTitle_;
    }
-   int Course::credits_(int) const
+   int Course::getCredits_(int) const
    {
       return credits_;
    }
-   int Course::studyLoad_(int) const
+   int Course::getStudyLoad_(int) const
    {
       return studyLoad_;
    }
@@ -100,8 +100,8 @@ namespace cs
 
       if (courseCode_[0] == '\0'
          && courseTitle_[0] == '\0'
-         && credits_() == 0
-         && studyLoad_() == 0)
+         && credits_ == 0
+         && studyLoad_ == 0)
       {
          safeEmptyState = true;
       }
